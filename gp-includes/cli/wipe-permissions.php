@@ -1,5 +1,13 @@
 <?php
+/**
+ * GlotPress CLI Command to Wipe Permissions
+ *
+ * @package GlotPress
+ */
 
+/**
+ * WP-CLI command class to wipe all permissions in GlotPress.
+ */
 class GP_CLI_Wipe_Permissions extends WP_CLI_Command {
 
 	public function __invoke() {

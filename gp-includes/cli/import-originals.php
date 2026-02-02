@@ -1,5 +1,13 @@
 <?php
+/**
+ * GlotPress CLI Command to Import Originals
+ *
+ * @package GlotPress
+ */
 
+/**
+ * WP-CLI command class to import originals into a project in GlotPress.
+ */
 class GP_CLI_Import_Originals extends WP_CLI_Command {
 	/**
 	 * Import originals for a project from a file

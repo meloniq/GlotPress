@@ -1,5 +1,13 @@
 <?php
+/**
+ * GlotPress CLI Command to Manage Translation Sets
+ *
+ * @package GlotPress
+ */
 
+/**
+ * WP-CLI command class to manage translation sets in GlotPress.
+ */
 class GP_CLI_Translation_Set extends WP_CLI_Command {
 	/**
 	 * Get a translation set for a project.

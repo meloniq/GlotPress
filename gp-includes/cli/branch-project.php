@@ -1,5 +1,13 @@
 <?php
+/**
+ * GlotPress CLI Command to Branch Project
+ *
+ * @package GlotPress
+ */
 
+/**
+ * WP-CLI command class to branch a project in GlotPress.
+ */
 class GP_CLI_Branch_Project extends WP_CLI_Command {
 	/**
 	 * Branch a project

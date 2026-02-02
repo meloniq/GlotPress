@@ -1,5 +1,13 @@
 <?php
+/**
+ * GlotPress CLI Command to Upgrade Set Permissions
+ *
+ * @package GlotPress
+ */
 
+/**
+ * WP-CLI command class to upgrade set permissions in GlotPress.
+ */
 class GP_CLI_Upgrade_Set_Permissions extends WP_CLI_Command {
 
 	public function __invoke() {
