@@ -1,5 +1,13 @@
 <?php
+/**
+ * GlotPress Format RESX
+ *
+ * @package GlotPress
+ */
 
+/**
+ * Format class used to support RESX files.
+ */
 class GP_Format_ResX extends GP_Format {
 
 	public $name           = '.NET Resource (.resx)';

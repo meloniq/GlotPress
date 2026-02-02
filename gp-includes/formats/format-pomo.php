@@ -1,6 +1,15 @@
 <?php
+/**
+ * GlotPress Format PO/MO
+ *
+ * @package GlotPress
+ */
+
 // phpcs:disable Generic.Files.OneObjectStructurePerFile.MultipleFound
 
+/**
+ * Format class used to support PO files.
+ */
 class GP_Format_PO extends GP_Format {
 
 	public $name           = 'Portable Object Message Catalog (.po/.pot)';
@@ -111,6 +120,9 @@ class GP_Format_PO extends GP_Format {
 	}
 }
 
+/**
+ * Format class used to support MO files.
+ */
 class GP_Format_MO extends GP_Format_PO {
 	public $name           = 'Machine Object Message Catalog (.mo)';
 	public $extension      = 'mo';

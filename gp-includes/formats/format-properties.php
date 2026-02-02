@@ -1,5 +1,13 @@
 <?php
+/**
+ * GlotPress Format Properties
+ *
+ * @package GlotPress
+ */
 
+/**
+ * Format class used to support Properties files.
+ */
 class GP_Format_Properties extends GP_Format {
 
 	public $name             = 'Java Properties File (.properties)';
