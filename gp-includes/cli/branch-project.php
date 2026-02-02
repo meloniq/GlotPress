@@ -21,6 +21,8 @@ class GP_CLI_Branch_Project extends WP_CLI_Command {
 	 *
 	 * <destination>
 	 * : Destination project path to duplicate to (must exist first)
+	 *
+	 * @param string[] $args Positional arguments.
 	 */
 	public function __invoke( $args ) {
 		$source_project = GP::$project->by_path( $args[0] );

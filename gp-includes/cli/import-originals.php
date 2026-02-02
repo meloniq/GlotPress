@@ -22,6 +22,9 @@ class GP_CLI_Import_Originals extends WP_CLI_Command {
 	 *
 	 * [--format=<format>]
 	 * : Accepted values: po, mo, android, resx, strings. Default: po
+	 *
+	 * @param string[] $args       Positional arguments.
+	 * @param array    $assoc_args Associative arguments.
 	 */
 	public function __invoke( $args, $assoc_args ) {
 		// Double-check for compatibility.

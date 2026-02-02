@@ -10,6 +10,9 @@
  */
 class GP_CLI_Upgrade_Set_Permissions extends WP_CLI_Command {
 
+	/**
+	 * Upgrade translation set permissions.
+	 */
 	public function __invoke() {
 		$permissions = GP::$permission->find_many(
 			array(

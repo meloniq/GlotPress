@@ -61,6 +61,9 @@ class GP_CLI_Translation_Set extends WP_CLI_Command {
 	 *
 	 * [--priority=<priorities>]
 	 * : Original priorities, comma separated. Possible values are "hidden,low,normal,high"
+	 *
+	 * @param string[] $args       Positional arguments.
+	 * @param array    $assoc_args Associative arguments.
 	 */
 	public function export( $args, $assoc_args ) {
 		$set_slug        = isset( $assoc_args['set'] ) ? $assoc_args['set'] : 'default';

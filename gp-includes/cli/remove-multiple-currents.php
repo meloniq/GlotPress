@@ -9,6 +9,9 @@
  * WP-CLI command class to remove multiple current translations in GlotPress.
  */
 class GP_CLI_Remove_Multiple_Currents extends WP_CLI_Command {
+	/**
+	 * Remove multiple current translations.
+	 */
 	public function __invoke() {
 		$sets = GP::$translation_set->all();
 		foreach ( $sets as $set ) {
