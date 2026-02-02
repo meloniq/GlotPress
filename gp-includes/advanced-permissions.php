@@ -1,4 +1,9 @@
 <?php
+/**
+ * GlotPress Advanced Permissions
+ *
+ * @package GlotPress
+ */
 
 /**
  * Filter for can_user, which tries if the user

@@ -1,5 +1,15 @@
 <?php
+/**
+ * GlotPress Router
+ *
+ * @package GlotPress
+ */
 
+/**
+ * Router class that matches request URIs to route handlers.
+ *
+ * @since 1.0.0
+ */
 class GP_Router {
 
 	public $api_prefix = 'api';

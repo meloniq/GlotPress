@@ -1,6 +1,8 @@
 <?php
 /**
  * Functions, which deal with URLs: manipulation, generation
+ *
+ * @package GlotPress
  */
 
 /**

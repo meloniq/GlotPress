@@ -1,4 +1,9 @@
 <?php
+/**
+ * GlotPress CLI
+ *
+ * @package GlotPress
+ */
 
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
 	gp_cli_register();

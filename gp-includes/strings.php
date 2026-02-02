@@ -1,5 +1,11 @@
 <?php
 /**
+ * GlotPress Strings
+ *
+ * @package GlotPress
+ */
+
+/**
  * Functions, which make work with strings easier
  */
 function gp_startswith( $haystack, $needle ) {

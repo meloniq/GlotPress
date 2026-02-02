@@ -1,4 +1,9 @@
 <?php
+/**
+ * GlotPress Format
+ *
+ * @package GlotPress
+ */
 
 /**
  * GlotPress Format base class. It is supposed to be inherited.

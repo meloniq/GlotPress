@@ -1,5 +1,11 @@
 <?php
 /**
+ * GlotPress Route
+ *
+ * @package GlotPress
+ */
+
+/**
  * Base controller class
  */
 class GP_Route {

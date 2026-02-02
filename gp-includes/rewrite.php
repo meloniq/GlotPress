@@ -6,7 +6,6 @@
  * @subpackage Rewrite
  */
 
-
 /**
  * Generate the WP rewrite rules.
  *

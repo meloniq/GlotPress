@@ -1,4 +1,9 @@
 <?php
+/**
+ * GlotPress Miscellaneous Functions
+ *
+ * @package GlotPress
+ */
 
 /**
  * Retrieves a value from $_POST.

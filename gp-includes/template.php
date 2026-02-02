@@ -1,4 +1,10 @@
 <?php
+/**
+ * GlotPress Template Functions
+ *
+ * @package GlotPress
+ */
+
 function gp_tmpl_load( $template, $args = array(), $template_path = null ) {
 	$args = gp_tmpl_filter_args( $args );
 

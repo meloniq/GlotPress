@@ -1,4 +1,9 @@
 <?php
+/**
+ * GlotPress System Functions
+ *
+ * @package GlotPress
+ */
 
 /**
  * Makes all key/value pairs in $vars global variables
