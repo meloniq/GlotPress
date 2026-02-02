@@ -10,10 +10,32 @@
  */
 class GP_Format_Properties extends GP_Format {
 
-	public $name             = 'Java Properties File (.properties)';
-	public $extension        = 'properties';
+	/**
+	 * Name of file format, used in file format dropdowns.
+	 *
+	 * @var string
+	 */
+	public $name = 'Java Properties File (.properties)';
+
+	/**
+	 * File extension of the file format, used to autodetect formats and when creating the output file names.
+	 *
+	 * @var string
+	 */
+	public $extension = 'properties';
+
+	/**
+	 * Pattern used to generate the output file names.
+	 *
+	 * @var string
+	 */
 	public $filename_pattern = '%s_%s';
 
+	/**
+	 * Holds the exported string.
+	 *
+	 * @var string
+	 */
 	public $exported = '';
 
 	/**
