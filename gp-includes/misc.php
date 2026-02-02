@@ -122,7 +122,7 @@ function gp_notice_set( $message, $key = 'notice' ) {
  * @param string $key Optional. Message key. The default is 'notice'
  */
 function gp_notice( $key = 'notice' ) {
-	// Sanitize fields
+	// Sanitize fields.
 	$allowed_tags = array(
 		'a'       => array( 'href' => true ),
 		'abbr'    => array(),
@@ -300,7 +300,7 @@ function gp_has_translation_been_updated( $translation_set, $timestamp = 0 ) {
 		$timestamp = gp_gmt_strtotime( wp_unslash( $_SERVER['HTTP_IF_MODIFIED_SINCE'] ) );
 	}
 
-	// If nothing to compare against, then always assume there's an update available
+	// If nothing to compare against, then always assume there's an update available.
 	if ( ! $timestamp ) {
 		return true;
 	}
@@ -330,7 +330,7 @@ function gp_clean_translation_set_cache( $id ) {
 /**
  * Delete counts cache for all translation sets of a project
  *
- * @param int $project_id project ID
+ * @param int $project_id Project ID.
  */
 function gp_clean_translation_sets_cache( $project_id ) {
 	$translation_sets = GP::$translation_set->by_project_id( $project_id );

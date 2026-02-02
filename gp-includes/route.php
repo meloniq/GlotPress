@@ -79,12 +79,12 @@ class GP_Route {
 	}
 
 	public function after_request() {
-		// we can't unregister a shutdown function
-		// this check prevents this method from being run twice
+		// we can't unregister a shutdown function.
+		// this check prevents this method from being run twice.
 		if ( ! $this->request_running ) {
 			return;
 		}
-		// set errors and notices
+		// set errors and notices.
 		if ( ! headers_sent() ) {
 			$this->set_notices_and_errors();
 		}
@@ -118,9 +118,9 @@ class GP_Route {
 	 * Note: this method calls $this->exit_() after the redirect and the code after it won't
 	 * be executed.
 	 *
-	 * @param object $thing a GP_Thing instance to validate
-	 * @param string $url where to redirect if the thing doesn't validate
-	 * @return bool whether the thing is valid
+	 * @param object $thing A GP_Thing instance to validate.
+	 * @param string $url Where to redirect if the thing doesn't validate.
+	 * @return bool Whether the thing is valid.
 	 */
 	public function invalid_and_redirect( $thing, $url = null ) {
 		$valid = $this->validate( $thing );

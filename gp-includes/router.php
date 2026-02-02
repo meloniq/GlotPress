@@ -78,7 +78,7 @@ class GP_Router {
 		$locale   = '(' . implode( '|', wp_list_pluck( GP_Locales::locales(), 'slug' ) ) . ')';
 		$set      = "$project/$locale/$dir";
 
-		// overall structure
+		// overall structure.
 		return array(
 			'/'                                               => array( 'GP_Route_Index', 'index' ),
 
@@ -177,7 +177,7 @@ class GP_Router {
 		$api              = gp_startswith( $real_request_uri, '/' . $this->api_prefix . '/' );
 
 		/**
-		 * Filter the list of HTTP methods allowed
+		 * Filter the list of HTTP methods allowed.
 		 *
 		 * @since 2.1
 		 *
@@ -191,7 +191,7 @@ class GP_Router {
 
 		$url_path = gp_url_path( gp_url_public_root() );
 
-		// If the request URL doesn't match our base URL, don't bother trying to match
+		// If the request URL doesn't match our base URL, don't bother trying to match.
 		if ( $url_path && ! gp_startswith( wp_unslash( trailingslashit( $_SERVER['REQUEST_URI'] ) ), $url_path ) ) {
 			return;
 		}

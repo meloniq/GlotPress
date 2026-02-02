@@ -7,7 +7,7 @@
 
 /**
  * Filter for can_user, which tries if the user
- * has permissions on project parents
+ * has permissions on project parents.
  */
 function gp_recurse_project_permissions( $verdict, $args ) {
 	if ( ! ( ! $verdict && 'project' == $args['object_type'] && $args['object_id'] && $args['user'] ) ) {

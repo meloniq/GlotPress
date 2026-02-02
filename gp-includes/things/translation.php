@@ -393,7 +393,7 @@ class GP_Translation extends GP_Thing {
 
 		if ( gp_array_get( $filters, 'user_login' ) ) {
 			$user = get_user_by( 'login', $filters['user_login'] );
-			// do not return any entries if the user doesn't exist
+			// do not return any entries if the user doesn't exist.
 			$where[] = $wpdb->prepare( 't.user_id = %d', ( $user && $user->ID ) ? $user->ID : -1 );
 		}
 
@@ -821,7 +821,7 @@ class GP_Translation extends GP_Thing {
 		return $last_modified;
 	}
 
-	// Triggers
+	// Triggers.
 
 	/**
 	 * Executes after creating a translation.

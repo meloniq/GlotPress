@@ -135,7 +135,7 @@ class GP_Route_Project extends GP_Route_Main {
 		}
 
 		if ( ! is_uploaded_file( $_FILES['import-file']['tmp_name'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
-			// TODO: different errors for different upload conditions
+			// TODO: different errors for different upload conditions.
 			$this->redirect_with_error( __( 'Error uploading the file.', 'glotpress' ) );
 			return;
 		}
@@ -212,7 +212,7 @@ class GP_Route_Project extends GP_Route_Main {
 			return;
 		}
 
-		// TODO: add id check as a validation rule
+		// TODO: add id check as a validation rule.
 		if ( $project->id == $updated_project->parent_project_id ) {
 			$this->errors[] = __( 'The project cannot be parent of itself!', 'glotpress' );
 		} elseif ( $project->save( $updated_project ) ) {
@@ -360,7 +360,7 @@ class GP_Route_Project extends GP_Route_Main {
 			}
 			$parent_permissions = array_merge( $parent_permissions, (array) $this_parent_permissions );
 		}
-		// we can't join on users table
+		// we can't join on users table.
 		foreach ( array_merge( (array) $permissions, (array) $parent_permissions ) as $permission ) {
 			$permission->user = get_user_by( 'id', $permission->user_id );
 		}

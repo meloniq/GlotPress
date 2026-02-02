@@ -222,7 +222,7 @@ class GP_Format_Properties extends GP_Format {
 		$code        = ord( $character );
 		$bytesnumber = 1;
 
-		if ( $code >= 128 ) {  // Otherwise 0xxxxxxx
+		if ( $code >= 128 ) {  // Otherwise 0xxxxxxx.
 			$codetemp = $code - 192;
 
 			if ( $code < 224 ) {
@@ -337,7 +337,7 @@ class GP_Format_Properties extends GP_Format {
 
 		foreach ( $translations->entries as $key => $entry ) {
 			// we have been using read_originals_from_file to parse the file
-			// so we need to swap singular and translation
+			// so we need to swap singular and translation.
 			$entry->translations = array( $entry->singular );
 			$entry->singular     = null;
 
@@ -410,7 +410,7 @@ class GP_Format_Properties extends GP_Format {
 					$comment = null;
 				}
 			} elseif ( false === $inline && $this->split_properties_line( $line, $key, $value ) ) {
-				// Check to see if this line continues on to the next
+				// Check to see if this line continues on to the next.
 				if ( gp_endswith( $line, '\\' ) ) {
 					$inline = true;
 					$value  = trim( $value, '\\' );

@@ -24,7 +24,7 @@ class GP_CLI_Import_Originals extends WP_CLI_Command {
 	 * : Accepted values: po, mo, android, resx, strings. Default: po
 	 */
 	public function __invoke( $args, $assoc_args ) {
-		// Double-check for compatibility
+		// Double-check for compatibility.
 		if ( '-p' === $args[0] || '-f' === $args[1] ) {
 			WP_CLI::error( __( '-p and -f are no longer required and should be removed.', 'glotpress' ) );
 		}

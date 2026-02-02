@@ -6,7 +6,7 @@
  */
 
 /**
- * Functions, which make work with strings easier
+ * Functions, which make work with strings easier.
  */
 function gp_startswith( $haystack, $needle ) {
 	return 0 === strpos( $haystack, $needle );

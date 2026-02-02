@@ -46,7 +46,7 @@ class GP_Thing {
 			$this->validation_rules = &self::$validation_rules_by_class[ $this->class ];
 		} else {
 			$this->validation_rules = new GP_Validation_Rules( array_merge( $this->field_names, $this->non_db_field_names ) );
-			// we give the rules as a parameter here solely as a syntax sugar
+			// we give the rules as a parameter here solely as a syntax sugar.
 			$this->restrict_fields( $this->validation_rules );
 			self::$validation_rules_by_class[ $this->class ] = &$this->validation_rules;
 		}
@@ -70,17 +70,17 @@ class GP_Thing {
 		self::$static_by_class[ $this->class ][ $name ] = $value;
 	}
 
-	// CRUD
+	// CRUD.
 
 	/**
-	 * Retrieves all rows from this table
+	 * Retrieves all rows from this table.
 	 */
 	public function all( $order = null ) {
 		return $this->many( $this->select_all_from_conditions_and_order( array(), $order ) );
 	}
 
 	/**
-	 * Reloads the object data from the database, based on its id
+	 * Reloads the object data from the database, based on its id.
 	 *
 	 * @return GP_Thing Thing object.
 	 */
@@ -338,7 +338,7 @@ class GP_Thing {
 	}
 
 	/**
-	 * Inserts a new row
+	 * Inserts a new row.
 	 *
 	 * @param array $args Associative array with fields as keys and values as values.
 	 *
@@ -361,7 +361,7 @@ class GP_Thing {
 	}
 
 	/**
-	 * Inserts a record and then selects it back based on the id
+	 * Inserts a record and then selects it back based on the id.
 	 *
 	 * @param array $args See create().
 	 * @return mixed the selected object or false on error.
@@ -376,7 +376,7 @@ class GP_Thing {
 	}
 
 	/**
-	 * Updates a single row
+	 * Updates a single row.
 	 *
 	 * @param array $data Associative array with fields as keys and updated values as values.
 	 */
@@ -583,7 +583,7 @@ class GP_Thing {
 		}
 	}
 
-	// Triggers
+	// Triggers.
 
 	/**
 	 * Is called after an object is created in the database.

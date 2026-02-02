@@ -57,7 +57,7 @@ function gp_rewrite_rules() {
 }
 
 /**
- * Query vars for GP rewrite rules
+ * Query vars for GP rewrite rules.
  *
  * @since 1.0.0
  */
@@ -67,7 +67,7 @@ function gp_query_vars( $query_vars ) {
 }
 
 /**
- * GP run route
+ * GP run route.
  *
  * @since 1.0.0
  */

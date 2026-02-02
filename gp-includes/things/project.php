@@ -41,7 +41,7 @@ class GP_Project extends GP_Thing {
 		$rules->slug_should_not_be( 'empty' );
 	}
 
-	// Additional queries
+	// Additional queries.
 
 	public function by_path( $path ) {
 		/**
@@ -111,7 +111,7 @@ class GP_Project extends GP_Thing {
 		return $projects;
 	}
 
-	// Triggers
+	// Triggers.
 
 	/**
 	 * Executes after creating a project.
@@ -160,7 +160,7 @@ class GP_Project extends GP_Thing {
 		do_action( 'gp_project_saved', $this, $project_before );
 
 		// TODO: pass the update args to after/pre_save?
-		// TODO: only call it if the slug or parent project were changed
+		// TODO: only call it if the slug or parent project were changed.
 		return ! is_null( $this->update_path() );
 	}
 
@@ -225,7 +225,7 @@ class GP_Project extends GP_Thing {
 		return $args;
 	}
 
-	// Helpers
+	// Helpers.
 
 	/**
 	 * Updates this project's and its children's paths, according to its current slug.
@@ -259,10 +259,10 @@ class GP_Project extends GP_Thing {
 	}
 
 	/**
-	 * Regenerate the paths of all projects from its parents slugs
+	 * Regenerate the paths of all projects from its parents slugs.
 	 */
 	public function regenerate_paths( $parent_project_id = null ) {
-		// TODO: do it with one query. Use the tree generation code from GP_Route_Main::_options_from_projects()
+		// TODO: do it with one query. Use the tree generation code from GP_Route_Main::_options_from_projects().
 		if ( $parent_project_id ) {
 			$parent_project = $this->get( $parent_project_id );
 			$path           = $parent_project->path;

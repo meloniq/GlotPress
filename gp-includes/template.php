@@ -324,7 +324,7 @@ function gp_radio_buttons( $name, $radio_buttons, $checked_key ) {
 	$res = '';
 	foreach ( $radio_buttons as $value => $label ) {
 		$checked = checked( $value, $checked_key, false );
-		// TODO: something more flexible than <br />
+		// TODO: something more flexible than <br /> ?
 		$res .= "\t<input type='radio' id='" . esc_attr( "{$name}[{$value}]" ) . "' name='" . esc_attr( $name ) . "' value='" . esc_attr( $value ) . "'$checked/>&nbsp;";
 		$res .= "<label for='" . esc_attr( "{$name}[{$value}]" ) . "'>" . esc_html( $label ) . "</label><br />\n";
 	}
@@ -492,7 +492,7 @@ function gp_projects_dropdown( $name_and_id, $selected_project_id = null, $attrs
 	}
 
 	$projects = GP::$project->all();
-	// TODO: mark which nodes are editable by the current user
+	// TODO: mark which nodes are editable by the current user.
 	$tree = array();
 	$top  = array();
 	foreach ( $projects as $p ) {
@@ -698,7 +698,7 @@ function gp_get_translation_row_classes( $translation ) {
 	$classes[] = $translation->warnings ? 'has-warnings' : 'no-warnings';
 	$classes[] = count( array_filter( $translation->translations, 'gp_is_not_null' ) ) > 0 ? 'has-translations' : 'no-translations';
 	/**
-	 * Filters the list of CSS classes for a translation row
+	 * Filters the list of CSS classes for a translation row.
 	 *
 	 * @since 2.2.0
 	 *

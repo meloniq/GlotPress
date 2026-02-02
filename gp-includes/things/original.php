@@ -165,7 +165,7 @@ class GP_Original extends GP_Thing {
 		$entry->context = isset( $entry->context ) ? $entry->context : null;
 
 		$where = array();
-		// now each condition has to contain a %s not to break the sequence
+		// now each condition has to contain a %s not to break the sequence.
 		$where[] = is_null( $entry->context ) ? '(context IS NULL OR %s IS NULL)' : 'context = BINARY %s';
 		$where[] = 'singular = BINARY %s';
 		$where[] = is_null( $entry->plural ) ? '(plural IS NULL OR %s IS NULL)' : 'plural = BINARY %s';
@@ -346,7 +346,7 @@ class GP_Original extends GP_Thing {
 				unset( $possibly_dropped[ $close_original ] );
 
 				continue;
-			} else { // Completely new string
+			} else { // Completely new string.
 				$created = GP::$original->create( $data );
 
 				if ( ! $created ) {
@@ -519,7 +519,7 @@ class GP_Original extends GP_Thing {
 		return parent::delete();
 	}
 
-	// Triggers
+	// Triggers.
 
 	/**
 	 * Executes after creating an original.

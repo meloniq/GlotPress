@@ -12,9 +12,9 @@ class GP_CLI_Translation_Set extends WP_CLI_Command {
 	/**
 	 * Get a translation set for a project.
 	 *
-	 * @param string $project Project path
-	 * @param string $locale Locale slug
-	 * @param string $set Set slug
+	 * @param string $project Project path.
+	 * @param string $locale Locale slug.
+	 * @param string $set Set slug.
 	 * @return GP_Translation_Set|WP_Error Translation set if available, error otherwise.
 	 */
 	protected function get_translation_set( $project, $locale, $set = 'default' ) {

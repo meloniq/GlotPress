@@ -202,7 +202,7 @@ class GP_Validators {
 	static $callbacks = array();
 
 	public static function register( $key, $callback, $negative_callback = null ) {
-		// TODO: add data for easier generation of error messages
+		// TODO: add data for easier generation of error messages.
 		self::$callbacks[ $key ] = array(
 			'positive' => $callback,
 			'negative' => $negative_callback,

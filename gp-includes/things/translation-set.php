@@ -379,7 +379,7 @@ class GP_Translation_Set extends GP_Thing {
 				 */
 				$create = apply_filters( 'gp_translation_set_import_over_existing', $translated_is_different );
 			} else {
-				// we don't have the string translated, let's see if the original is there
+				// we don't have the string translated, let's see if the original is there.
 				$original = GP::$original->by_project_id_and_entry( $this->project->id, $entry, '+active' );
 				if ( $original ) {
 					$entry->original_id = $original->id;

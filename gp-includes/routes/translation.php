@@ -235,7 +235,7 @@ class GP_Route_Translation extends GP_Route_Main {
 		$bulk_action         = gp_url_join( $url, '-bulk' );
 		$word_count_type     = $locale->word_count_type;
 
-		// Add action to use different font for translations
+		// Add action to use different font for translations.
 		add_action(
 			'gp_head',
 			function () use ( $locale ) {
