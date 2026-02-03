@@ -31,6 +31,9 @@ class GP_Route {
 	var $http_status;
 	var $last_method_called;
 
+	/**
+	 * Constructor.
+	 */
 	public function __construct() {
 
 		// Make sure that the current URL has a trailing slash.
@@ -66,6 +69,9 @@ class GP_Route {
 		}
 	}
 
+	/**
+	 * Actions to perform before a route method is called.
+	 */
 	public function before_request() {
 		/**
 		 * Fires before a route method is called.
@@ -78,6 +84,9 @@ class GP_Route {
 		do_action( 'gp_before_request', $this->class_name, $this->last_method_called );
 	}
 
+	/**
+	 * Actions to perform after a route method was called.
+	 */
 	public function after_request() {
 		// we can't unregister a shutdown function.
 		// this check prevents this method from being run twice.
@@ -103,8 +112,8 @@ class GP_Route {
 	/**
 	 * Validates a thing and add its errors to the route's errors.
 	 *
-	 * @param object $thing a GP_Thing instance to validate
-	 * @return bool whether the thing is valid
+	 * @param object $thing A GP_Thing instance to validate.
+	 * @return bool Whether the thing is valid.
 	 */
 	public function validate( $thing ) {
 		$verdict      = $thing->validate();
@@ -227,17 +236,31 @@ class GP_Route {
 		return false;
 	}
 
+	/**
+	 * Ensures that a user is logged in, otherwise shows a 403 Forbidden error.
+	 */
 	public function logged_in_or_forbidden() {
 		if ( ! is_user_logged_in() ) {
 			$this->die_with_error( 'Forbidden', 403 );
 		}
 	}
 
+	/**
+	 * Redirects to a URL with an error message.
+	 *
+	 * @param string      $message The error message.
+	 * @param string|null $url     The URL to redirect to. Default: 'null', the referrer.
+	 */
 	public function redirect_with_error( $message, $url = null ) {
 		$this->errors[] = $message;
 		$this->redirect( $url );
 	}
 
+	/**
+	 * Redirects to a URL.
+	 *
+	 * @param string|null $url The URL to redirect to. Default: 'null', the referrer.
+	 */
 	public function redirect( $url = null ) {
 		if ( $this->fake_request ) {
 			$this->redirected    = true;
@@ -307,6 +330,9 @@ class GP_Route {
 		$this->header( 'Connection: close' );
 	}
 
+	/**
+	 * Sets notices and errors to be displayed.
+	 */
 	public function set_notices_and_errors() {
 		if ( $this->fake_request ) {
 			return;
@@ -351,6 +377,11 @@ class GP_Route {
 		return gp_tmpl_load( $template, $args, $this->template_path );
 	}
 
+	/**
+	 * Shows a 404 Not Found page and exits.
+	 *
+	 * @param array $args Additional arguments to pass to the template.
+	 */
 	public function die_with_404( $args = array() ) {
 		$this->status_header( 404 );
 		$this->tmpl(
@@ -363,6 +394,11 @@ class GP_Route {
 		$this->exit_();
 	}
 
+	/**
+	 * Exits the request.
+	 *
+	 * @param mixed $message Optional. Message to output before exit. Default: 0.
+	 */
 	public function exit_( $message = 0 ) {
 		if ( $this->fake_request ) {
 			$this->exited       = true;
@@ -373,6 +409,11 @@ class GP_Route {
 		exit( $message );
 	}
 
+	/**
+	 * Sends a HTTP header.
+	 *
+	 * @param string $string The header string.
+	 */
 	public function header( $string ) {
 		if ( $this->fake_request ) {
 			list( $header, $value )   = explode( ':', $string, 2 );
@@ -382,6 +423,11 @@ class GP_Route {
 		}
 	}
 
+	/**
+	 * Sends a HTTP status header.
+	 *
+	 * @param int $status The HTTP status code.
+	 */
 	public function status_header( $status ) {
 		if ( $this->fake_request ) {
 			$this->http_status = $status;
