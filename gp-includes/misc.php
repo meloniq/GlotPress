@@ -62,19 +62,33 @@ function gp_route_nonce_url( $url, $action ) {
 /**
  * Retrieves a value from $array
  *
- * @param array  $array
- * @param string $key name of array value
- * @param mixed  $default value to return if $array[$key] doesn't exist. Default is ''
+ * @param array  $array   The array to get the value from.
+ * @param string $key     Name of array value.
+ * @param mixed  $default Value to return if $array[$key] doesn't exist. Default is ''.
  * @return mixed $array[$key] if exists or $default
  */
 function gp_array_get( $array, $key, $default = '' ) {
 	return ( is_scalar( $key ) && isset( $array[ $key ] ) ) ? $array[ $key ] : $default;
 }
 
+/**
+ * Retrieves a constant value or a default value if the constant isn't defined.
+ *
+ * @param string $name    Name of the constant.
+ * @param mixed  $default Value to return if the constant isn't defined. Default is ''.
+ * @return mixed Constant value if defined or $default.
+ */
 function gp_const_get( $name, $default = '' ) {
 	return defined( $name ) ? constant( $name ) : $default;
 }
 
+/**
+ * Defines a constant if it isn't already defined.
+ *
+ * @param string $name  Name of the constant.
+ * @param mixed  $value Value to set the constant to.
+ * @return bool True if the constant was defined, false if it was already defined.
+ */
 function gp_const_set( $name, $value ) {
 	if ( defined( $name ) ) {
 		return false;
@@ -83,7 +97,14 @@ function gp_const_set( $name, $value ) {
 	return true;
 }
 
-
+/**
+ * Retrieves a member variable from an object.
+ *
+ * @param object       $object  The object to get the member from.
+ * @param string       $key     Name of member variable.
+ * @param string|array $default Value to return if $object->$key doesn't exist. Default is ''.
+ * @return string|array $object->$key if exists or $default
+ */
 function gp_member_get( $object, $key, $default = '' ) {
 	return ( is_string( $key ) && property_exists( $object, $key ) ) ? $object->$key : $default;
 }
@@ -91,8 +112,8 @@ function gp_member_get( $object, $key, $default = '' ) {
 /**
  * Makes from an array of arrays a flat array.
  *
- * @param array $array the arra to flatten
- * @return array flattenned array
+ * @param array $array The array to flatten.
+ * @return array Flattenned array.
  */
 function gp_array_flatten( $array ) {
 	$res = array();
@@ -119,7 +140,7 @@ function gp_notice_set( $message, $key = 'notice' ) {
 /**
  * Retrieves a notice message, set by {@link gp_notice()}
  *
- * @param string $key Optional. Message key. The default is 'notice'
+ * @param string $key Optional. Message key. The default is 'notice'.
  */
 function gp_notice( $key = 'notice' ) {
 	// Sanitize fields.
@@ -158,6 +179,9 @@ function gp_notice( $key = 'notice' ) {
 	return wp_kses( gp_array_get( GP::$redirect_notices, $key ), $allowed_tags );
 }
 
+/**
+ * Populates the GP::$redirect_notices array from the cookies and clears the cookies.
+ */
 function gp_populate_notices() {
 	GP::$redirect_notices = array();
 	$prefix               = '_gp_notice_';
@@ -253,6 +277,14 @@ function gp_array_zip( ...$args ) {
 	return $res;
 }
 
+/**
+ * Returns true if callback returns true for any item in array.
+ *
+ * @param callable     $callback The callback to run for each item.
+ * @param array        $array    The array to iterate over.
+ * @param mixed|string $arg      Optional. An additional argument to pass to the callback. Default null.
+ * @return bool
+ */
 function gp_array_any( $callback, $array, $arg = null ) {
 	foreach ( $array as $item ) {
 		if ( is_array( $callback ) ) {
@@ -266,6 +298,13 @@ function gp_array_any( $callback, $array, $arg = null ) {
 	return false;
 }
 
+/**
+ * Returns true if callback returns true for all items in array.
+ *
+ * @param callable $callback The callback to run for each item.
+ * @param array    $array    The array to iterate over.
+ * @return bool
+ */
 function gp_array_all( $callback, $array ) {
 	foreach ( $array as $item ) {
 		if ( ! $callback( $item ) ) {
@@ -275,6 +314,11 @@ function gp_array_all( $callback, $array ) {
 	return true;
 }
 
+/**
+ * Logs a value to the error log.
+ *
+ * @param mixed $value The value to log.
+ */
 function gp_error_log_dump( $value ) {
 	if ( is_array( $value ) || is_object( $value ) ) {
 		$value = print_r( $value, true );
@@ -282,6 +326,13 @@ function gp_error_log_dump( $value ) {
 	error_log( $value );
 }
 
+/**
+ * Checks if an object has a member variable.
+ *
+ * @param object $object   The object to check.
+ * @param string $var_name Name of member variable.
+ * @return bool
+ */
 function gp_object_has_var( $object, $var_name ) {
 	return in_array( $var_name, array_keys( get_object_vars( $object ) ), true );
 }
@@ -289,7 +340,7 @@ function gp_object_has_var( $object, $var_name ) {
 /**
  * Has this translation been updated since the passed timestamp?
  *
- * @param GP_Translation_Set $translation_set Translation to check
+ * @param GP_Translation_Set $translation_set Translation to check.
  * @param int                $timestamp Optional; unix timestamp to compare against. Defaults to HTTP_IF_MODIFIED_SINCE if set.
  * @return bool
  */
@@ -419,8 +470,8 @@ function gp_is_not_null( $value ) {
  * Checks if the passed value is between the start and end value or is the same.
  *
  * @param string $value The value you want to check.
- * @param string $value The lower value you want to check against.
- * @param string $value The upper value you want to check against.
+ * @param string $start The lower value you want to check against.
+ * @param string $end   The upper value you want to check against.
  * @return bool
  */
 function gp_is_between( $value, $start, $end ) {
@@ -431,6 +482,8 @@ function gp_is_between( $value, $start, $end ) {
  * Checks if the passed value is between the start and end value.
  *
  * @param string $value The value you want to check.
+ * @param string $start The lower value you want to check against.
+ * @param string $end   The upper value you want to check against.
  * @return bool
  */
 function gp_is_between_exclusive( $value, $start, $end ) {

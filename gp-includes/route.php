@@ -10,25 +10,123 @@
  */
 class GP_Route {
 
+	/**
+	 * Whether the route is processing an API request.
+	 *
+	 * @var bool
+	 */
 	public $api = false;
 
+	/**
+	 * Errors collected during the request.
+	 *
+	 * @var array
+	 */
 	public $errors  = array();
+
+	/**
+	 * Notices collected during the request.
+	 *
+	 * @var array
+	 */
 	public $notices = array();
 
+	/**
+	 * Whether the request is currently running.
+	 *
+	 * @var bool
+	 */
 	var $request_running = false;
-	var $template_path   = null;
 
+	/**
+	 * Path to templates.
+	 *
+	 * @var string|null
+	 */
+	var $template_path = null;
+
+	/**
+	 * Whether this is a fake request (for testing).
+	 *
+	 * @var bool
+	 */
 	var $fake_request = false;
-	var $exited       = false;
+
+	/**
+	 * Whether exit() has been called.
+	 *
+	 * @var bool
+	 */
+	var $exited = false;
+
+	/**
+	 * Message passed to exit().
+	 *
+	 * @var mixed
+	 */
 	var $exit_message;
-	var $redirected        = false;
-	var $redirected_to     = null;
+
+	/**
+	 * Whether a redirect has been performed.
+	 *
+	 * @var bool
+	 */
+	var $redirected = false;
+
+	/**
+	 * URL redirected to.
+	 *
+	 * @var string|null
+	 */
+	var $redirected_to = null;
+
+	/**
+	 * Whether a template has been rendered.
+	 *
+	 * @var bool
+	 */
 	var $rendered_template = false;
-	var $loaded_template   = null;
-	var $template_output   = null;
-	var $headers           = array();
+
+	/**
+	 * The name of the loaded template.
+	 *
+	 * @var string|null
+	 */
+	var $loaded_template = null;
+
+	/**
+	 * The output of the template when in fake request mode.
+	 *
+	 * @var string|null
+	 */
+	var $template_output = null;
+
+	/**
+	 * Headers sent during fake request.
+	 *
+	 * @var array
+	 */
+	var $headers = array();
+
+	/**
+	 * The class name of the route.
+	 *
+	 * @var string
+	 */
 	var $class_name;
+
+	/**
+	 * The HTTP status code sent during fake request.
+	 *
+	 * @var int
+	 */
 	var $http_status;
+
+	/**
+	 * The last method called on the route.
+	 *
+	 * @var string
+	 */
 	var $last_method_called;
 
 	/**

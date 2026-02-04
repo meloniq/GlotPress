@@ -12,9 +12,25 @@
  */
 class GP_Router {
 
+	/**
+	 * API prefix.
+	 *
+	 * @var string
+	 */
 	public $api_prefix = 'api';
-	private $urls      = array();
 
+	/**
+	 * Array of URL routes.
+	 *
+	 * @var array
+	 */
+	private $urls = array();
+
+	/**
+	 * Constructor.
+	 *
+	 * @param array $urls Optional. Array of URL routes.
+	 */
 	public function __construct( $urls = array() ) {
 		$this->urls = $urls;
 	}
@@ -48,18 +64,42 @@ class GP_Router {
 		return urldecode( '/' . rtrim( $gp_route, '/' ) );
 	}
 
+	/**
+	 * Returns the current request method.
+	 */
 	public function request_method() {
 		return wp_unslash( gp_array_get( $_SERVER, 'REQUEST_METHOD', 'GET' ) );
 	}
 
+	/**
+	 * Add a route to the router.
+	 *
+	 * @param string $re       The regular expression to match the route.
+	 * @param mixed  $function The function or class/method array to call when the route is matched.
+	 * @param string $method   Optional. The HTTP method to match. Default 'get'.
+	 */
 	public function add( $re, $function, $method = 'get' ) {
 		$this->urls[ "$method:$re" ] = $function;
 	}
 
+	/**
+	 * Prepend a route to the router.
+	 *
+	 * @param string $re       The regular expression to match the route.
+	 * @param mixed  $function The function or class/method array to call when the route is matched.
+	 * @param string $method   Optional. The HTTP method to match. Default 'get'.
+	 */
 	public function prepend( $re, $function, $method = 'get' ) {
 		$this->urls = array( "$method:$re" => $function ) + $this->urls;
 	}
 
+	/**
+	 * Remove a route from the router.
+	 *
+	 * @param string $re     The regular expression of the route to remove.
+	 * @param string $method Optional. The HTTP method of the route to remove. Default 'get'.
+	 * @return bool Whether the route was found and removed.
+	 */
 	public function remove( $re, $method = 'get' ) {
 		if ( isset( $this->urls[ "$method:$re" ] ) ) {
 			unset( $this->urls[ "$method:$re" ] );
@@ -69,6 +109,11 @@ class GP_Router {
 		return false;
 	}
 
+	/**
+	 * Returns the default routes that GlotPress needs.
+	 *
+	 * @return array The default routes.
+	 */
 	private function default_routes() {
 		$dir      = '([^_/][^/]*)';
 		$path     = '(.+?)';
@@ -167,7 +212,9 @@ class GP_Router {
 		);
 	}
 
-
+	/**
+	 * Routes the current request to the appropriate handler.
+	 */
 	public function route() {
 		global $wp_query;
 

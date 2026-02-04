@@ -60,6 +60,9 @@ function gp_rewrite_rules() {
  * Query vars for GP rewrite rules.
  *
  * @since 1.0.0
+ *
+ * @param array $query_vars The existing query vars.
+ * @return array The query vars with `gp_route` added.
  */
 function gp_query_vars( $query_vars ) {
 	$query_vars[] = 'gp_route';
